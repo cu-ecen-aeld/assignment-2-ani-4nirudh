@@ -18,7 +18,7 @@ if [[ ! -d ${filesdir} ]]; then
   exit 1
 fi
 
-filecount=$(ls -1 | wc -l)
-matchcount=$(grep -irn ${searchstr} ${filesdir} | wc -l)
+filecount=$(find ${filesdir} -type f | wc -l)
+matchcount=$(grep -irn "${searchstr}" "${filesdir}" | wc -l)
 
 echo -e "The number of files are ${filecount} and the number of matching lines are ${matchcount}"
